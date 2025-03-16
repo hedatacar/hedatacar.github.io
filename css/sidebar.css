@@ -1,0 +1,35 @@
+.sidebar > ul{
+  margin-left: lrem;
+  margin-top: 3rem;
+}
+
+.sideLink::marker {
+  font-size: 3.3rem;
+  line-height: 4rem;
+} 
+
+.sideLink{
+  position: relative;
+}
+
+.sideLink a {
+  position: absolute;
+  top: 1.6rem;
+  left: -0.7rem;
+}
+
+.sideLinkTop{
+  color: #fbc4ae;
+}
+
+.sideLinkPaper{
+  color: #66df4b;
+}
+
+.sideLinkConference{
+  color: #79e5e8;
+}
+
+.sideLinkCV{
+  color: #3389d4;
+}
