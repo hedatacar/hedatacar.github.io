@@ -5,6 +5,121 @@
   <title>講演 — 国吉 秀鷹</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .stats-row {
+      display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px;
+    }
+    .stat-box {
+      background: var(--ink); color: #f0ebe2;
+      border-radius: 10px; padding: 14px 22px;
+      min-width: 110px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px; font-weight: 300;
+      color: var(--accent2); line-height: 1;
+      display: block; margin-bottom: 4px;
+    }
+    .stat-label { font-size: 10px; color: rgba(240,235,226,0.55); letter-spacing: 0.5px; }
+
+    /* year block */
+    .year-block { margin-bottom: 12px; }
+
+    .year-toggle {
+      width: 100%; background: var(--ink); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 22px; border-radius: 10px;
+      color: #f0ebe2; transition: background 0.2s;
+    }
+    .year-toggle:hover { background: #25201a; }
+    .year-toggle.open  { border-radius: 10px 10px 0 0; }
+    .year-toggle-left  { display: flex; align-items: baseline; gap: 10px; }
+    .year-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 300;
+      color: var(--accent2); letter-spacing: 1px;
+    }
+    .year-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .year-count { font-size: 11px; color: rgba(240,235,226,0.45); letter-spacing: 0.3px; }
+    .year-invited-badge {
+      font-size: 10px;
+      background: rgba(200,119,58,0.22);
+      color: var(--accent2);
+      border: 1px solid rgba(200,119,58,0.38);
+      border-radius: 20px; padding: 1px 9px;
+      letter-spacing: 0.3px; font-weight: 500;
+    }
+    .year-arrow {
+      font-size: 14px; color: var(--accent2);
+      transition: transform 0.3s ease; display: inline-block;
+    }
+    .year-toggle.open .year-arrow { transform: rotate(180deg); }
+
+    /* accordion */
+    .acc-body { overflow: hidden; max-height: 0; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+    .acc-body.open { max-height: 8000px; }
+
+    /* split layout */
+    .acc-inner-split {
+      background: #fff;
+      border: 1px solid var(--cream);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .acc-inner-split.single { grid-template-columns: 1fr; }
+
+    .split-col { padding: 0; }
+    .split-col + .split-col { border-left: 1px solid var(--cream); }
+
+    .split-col-header {
+      padding: 8px 20px;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted);
+      background: #faf8f4;
+      border-bottom: 1px solid var(--cream);
+    }
+
+    /* talk rows */
+    .talk-item {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--cream);
+      transition: background 0.15s;
+    }
+    .talk-item:last-child { border-bottom: none; }
+    .talk-item:hover { background: #faf8f4; }
+
+    .talk-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14.5px; font-style: italic;
+      color: var(--ink); line-height: 1.4; margin-bottom: 5px;
+    }
+    .talk-meta { font-size: 12px; color: var(--muted); line-height: 1.55; }
+    .talk-meta a {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid var(--warm-mid); transition: border-color 0.2s;
+    }
+    .talk-meta a:hover { border-color: var(--accent); }
+
+    /* badges */
+    .tbadge {
+      display: inline-block; font-size: 9.5px;
+      padding: 1px 6px; border-radius: 3px;
+      font-weight: 500; letter-spacing: 0.3px;
+      margin-left: 5px; vertical-align: middle;
+      font-style: normal; white-space: nowrap;
+    }
+    .tb-oral    { background: #d2e8fc; color: #1a4f82; }
+    .tb-poster  { background: #ecdffe; color: #5e1a8a; }
+    .tb-invited { background: #fdf3cc; color: #7a5e10; }
+
+    @media (max-width: 680px) {
+      .acc-inner-split { grid-template-columns: 1fr; }
+      .split-col + .split-col { border-left: none; border-top: 1px solid var(--cream); }
+    }
+  </style>
 </head>
 <body>
 
@@ -36,292 +151,433 @@
     <div class="subtitle">国内外の学会・セミナーでの講演一覧</div>
   </header>
 
-  <section>
-    <div class="section-label">Presentations</div>
-    <div class="section-title">講演リスト</div>
+  <div class="stats-row">
+    <div class="stat-box"><span class="stat-num">29</span><span class="stat-label">学会口頭発表</span></div>
+    <div class="stat-box"><span class="stat-num">9</span><span class="stat-label">ポスター発表</span></div>
+    <div class="stat-box"><span class="stat-num">14</span><span class="stat-label">セミナー講演</span></div>
+    <div class="stat-box"><span class="stat-num">13</span><span class="stat-label">うち招待</span></div>
+  </div>
 
-    <!-- 2026 -->
-    <div class="news-section">
-      <button class="year-toggle open" onclick="toggle(this)" aria-expanded="true">
-        <div class="year-toggle-left">
-          <span class="year-num">2026</span>
-          <span class="year-count">2 件</span>
+  <div class="section-label">Presentations by Year</div>
+  <div class="section-title">年度別一覧</div>
+
+  <!-- ═══════ 2026 ═══════
+       学会: invited oral×1, oral×1
+       セミナー: invited×2
+       招待計: 3 -->
+  <div class="year-block">
+    <button class="year-toggle open" onclick="toggle(this)" aria-expanded="true">
+      <div class="year-toggle-left">
+        <span class="year-num">2026</span>
+        <div class="year-meta">
+          <span class="year-count">学会 2件 · セミナー 2件</span>
+          <span class="year-invited-badge">招待 3件</span>
         </div>
-        <span class="year-arrow">▼</span>
-      </button>
-      <div class="acc-body open">
-        <div class="acc-inner">
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <div class="acc-inner-split">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"
+              <span class="tbadge tb-oral">oral</span>
+            </div>
+            <div class="talk-meta"><a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0564/">京大生存圏研究所・KDK シンポジウム</a>, 05 Mar. 2026, Online.</div>
+          </div>
           <div class="talk-item">
             <div class="talk-title">"A self-consistent solar coronal heating model by Alfvénic waves"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://www.prl.res.in/~uso50yr/uso50yr.shtml">International Conference on Exploring the Sun at High-Resolution</a>, 10–13 Feb. 2026, Udaipur Solar Observatory, India.
+            <div class="talk-meta"><a href="https://www.prl.res.in/~uso50yr/uso50yr.shtml">Intl. Conf. on Exploring the Sun at High-Resolution</a>, 10–13 Feb. 2026, Udaipur Solar Observatory, India.</div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="split-col-header">セミナー</div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"
+              <span class="tbadge tb-invited">invited</span>
             </div>
+            <div class="talk-meta"><a href="https://www.cfca.nao.ac.jp/newsletter/2025%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0cfca%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E3%81%94%E6%A1%88%E5%86%85">国立天文台 CfCA ユーザーズミーティング</a>, 23 Jan. 2026, NAOJ.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-invited">invited</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0564/">京大生存圏研究所・電波科学計算機実験（KDK）シンポジウム</a>, 05 Mar. 2026, Online.
-            </div>
+            <div class="talk-meta"><a href="https://www.oist.jp/ja/research/research-units/stec">OIST 太陽地球環境-気候ユニット（宮原ユニット）</a>, 07 Jan. 2026.</div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 2025 -->
-    <div class="news-section" style="margin-top:10px;">
-      <button class="year-toggle open" onclick="toggle(this)" aria-expanded="true">
-        <div class="year-toggle-left">
-          <span class="year-num">2025</span>
-          <span class="year-count">13 件</span>
+  <!-- ═══════ 2025 ═══════
+       学会: oral×7, poster×2  うちinvited×4
+       セミナー: invited×2, other×5
+       招待計: 6 -->
+  <div class="year-block">
+    <button class="year-toggle open" onclick="toggle(this)" aria-expanded="true">
+      <div class="year-toggle-left">
+        <span class="year-num">2025</span>
+        <div class="year-meta">
+          <span class="year-count">学会 9件 · セミナー 7件</span>
+          <span class="year-invited-badge">招待 6件</span>
         </div>
-        <span class="year-arrow">▼</span>
-      </button>
-      <div class="acc-body open">
-        <div class="acc-inner">
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body open">
+      <div class="acc-inner-split">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
           <div class="talk-item">
-            <div class="talk-title">"A self-consistent solar coronal heating model by Alfvénic waves"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
+            <div class="talk-title">"A unified picture of swirl-driven coronal heating: magnetic energy supply and dissipation"
+              <span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/sheffield.ac.uk/pdg/seminars-and-conferences/pdg-seminars/2025?authuser=0">Plasma Dynamics Group (PDG) seminar</a>, 09 Oct. 2025, Sheffield University, UK.
-            </div>
+            <div class="talk-meta"><a href="https://indico.ict.inaf.it/event/3090/">WISA (Waves and Instabilities in the Solar Atmosphere)</a>, 23–26 Sep. 2025, INAF, Italy.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"A unified picture of swirl-driven coronal heating: magnetic energy supply and dissipation"
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-poster">poster</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://indico.ict.inaf.it/event/3090/">WISA (Waves and Instabilities in the Solar Atmosphere)</a>, 23–26 Sep. 2025, INAF, Italy.
+            <div class="talk-meta"><a href="https://astronomiaoan.github.io/iaus400/">IAU Symposium 400</a>, 21–25 Jul. 2025, EAFIT University, Colombia.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"
+              <span class="tbadge tb-poster">poster</span>
             </div>
+            <div class="talk-meta"><a href="https://conference.astro.dur.ac.uk/event/7/">National Astronomical Meeting</a>, 07–11 Jul. 2025, Durham University, UK.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"
+              <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span>
+            </div>
+            <div class="talk-meta"><a href="https://sites.google.com/view/hinode-18-iris-16-meeting/science-programme?authuser=0">Hinode18-IRIS16 Meeting</a>, 23–27 Jun. 2025, UCL, UK.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"A unified picture of swirl-driven coronal heating: magnetic energy supply and dissipation"
-              <span class="talk-badge badge-poster">poster</span>
+              <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://astronomiaoan.github.io/iaus400/">IAU Symposium 400</a>, 21–25 Jul. 2025, EAFIT University, Colombia.
-            </div>
+            <div class="talk-meta"><a href="https://sites.google.com/sheffield.ac.uk/pdg/research/vortex-community/spins-meeting">SPINS Meeting</a>, 02–04 Jun. 2025, Sheffield University, UK.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-poster">poster</span>
+              <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://conference.astro.dur.ac.uk/event/7/">National Astronomical Meeting</a>, 07–11 Jul. 2025, Durham University, UK.
-            </div>
+            <div class="talk-meta"><a href="https://sites.google.com/view/solo-wg/working-groups/atmospheric-heating-rs?authuser=0">Solar Orbiter Atmospheric Heating WG Seminar</a>, 05 May 2025, Online.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              Solar and Space Physics Group Seminar, 02 Jul. 2025, Northumbria University, UK.
-            </div>
+            <div class="talk-meta"><a href="https://www.asj.or.jp/nenkai/archive/2025a/session-M.html">日本天文学会春季年会</a>, 17–20 Mar. 2025, 茨城大学.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/view/hinode-18-iris-16-meeting/science-programme?authuser=0">Hinode18-IRIS16 Meeting</a>, 23–27 Jun. 2025, UCL, UK.
-            </div>
-          </div>
-          <div class="talk-item">
-            <div class="talk-title">"A unified picture of swirl-driven coronal heating: magnetic energy supply and dissipation"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/sheffield.ac.uk/pdg/research/vortex-community/spins-meeting">SPINS (Solar Physics International Network for Swirls) meeting</a>, 02–04 Jun. 2025, Sheffield University, UK.
-            </div>
+            <div class="talk-meta"><a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2024_program.pdf">太陽研究者連絡会シンポジウム</a>, 17–19 Feb. 2025, ISAS.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-oral">oral</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://www.heap.phys.waseda.ac.jp/index.php">Yamada Lab seminar, High Energy Astrophysics Group</a>, 09 May 2025, Waseda University, Japan.
+            <div class="talk-meta"><a href="https://sites.google.com/view/cswsj">Cool Stars Workshop in Japan</a>, 12–14 Feb. 2025, 東京大学.</div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="split-col-header">セミナー</div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"
+              <span class="tbadge tb-invited">invited</span>
             </div>
+            <div class="talk-meta"><a href="https://sites.google.com/sheffield.ac.uk/pdg/seminars-and-conferences/pdg-seminars/2025?authuser=0">Plasma Dynamics Group (PDG) seminar</a>, 09 Oct. 2025, Sheffield University, UK.</div>
           </div>
           <div class="talk-item">
             <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
+              <span class="tbadge tb-invited">invited</span>
             </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/view/solo-wg/working-groups/atmospheric-heating-rs?authuser=0">Solar Orbiter Atmospheric Heating Working Group seminar</a>, 05 May 2025, Online.
-            </div>
+            <div class="talk-meta"><a href="https://www.heap.phys.waseda.ac.jp/index.php">早稲田大学・山田研究室セミナー</a>, 09 May 2025, Online.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.asj.or.jp/nenkai/archive/2025a/session-M.html">Astronomical Society of Japan Spring Annual Meeting</a>, 17–20 Mar. 2025, Ibaraki University, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating"</div>
+            <div class="talk-meta">Solar and Space Physics Group Seminar, 02 Jul. 2025, Northumbria University, UK.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0543/">Research Institute for Sustainable Humanosphere (KDK)</a>, 14 Mar. 2025, Online.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating"</div>
+            <div class="talk-meta"><a href="https://www2.kusastro.kyoto-u.ac.jp/ja/danwakai2025">京都大学宇宙物理学教室談話会</a>, 26 Dec. 2025.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2024_program.pdf">Japan Solar Physics Community Symposium</a>, 17–19 Feb. 2025, ISAS, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating"</div>
+            <div class="talk-meta"><a href="https://sites.google.com/view/rironkon2025/">理論懇シンポジウム</a>, 17–19 Dec. 2025, 筑波大学.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/view/cswsj">Cool Stars Workshop in Japan</a>, 12–14 Feb. 2025, University of Tokyo, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating"</div>
+            <div class="talk-meta"><a href="https://www-space.eps.s.u-tokyo.ac.jp/~imada/lab/">東京大学・今田研究室セミナー</a>, 16 Dec. 2025.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating"</div>
+            <div class="talk-meta"><a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0543/">京大生存圏研究所・KDK シンポジウム</a>, 14 Mar. 2025, Online.</div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 2024 -->
-    <div class="news-section" style="margin-top:10px;">
-      <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
-        <div class="year-toggle-left">
-          <span class="year-num">2024</span>
-          <span class="year-count">10 件</span>
+  <!-- ═══════ 2024 ═══════
+       学会: oral×9, poster×1  うちinvited×2
+       セミナー: invited×2
+       招待計: 4 -->
+  <div class="year-block">
+    <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="year-toggle-left">
+        <span class="year-num">2024</span>
+        <div class="year-meta">
+          <span class="year-count">学会 10件 · セミナー 2件</span>
+          <span class="year-invited-badge">招待 4件</span>
         </div>
-        <span class="year-arrow">▼</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-inner">
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://sites.google.com/view/rironkon2024/%E3%83%9B%E3%83%BC%E3%83%A0">Rironkon Symposium</a>, 24–26 Dec. 2024, NAOJ, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://sites.google.com/view/rironkon2024/%E3%83%9B%E3%83%BC%E3%83%A0">理論懇シンポジウム</a>, 24–26 Dec. 2024, NAOJ.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-poster">poster</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.cfca.nao.ac.jp/content/2024%E4%BB%A4%E5%92%8C6%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0-cfca-%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">CfCA Users Meeting</a>, 25–26 Nov. 2024, NAOJ, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta"><a href="https://www.cfca.nao.ac.jp/content/2024%E4%BB%A4%E5%92%8C6%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0-cfca-%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">CfCA Users Meeting</a>, 25–26 Nov. 2024, NAOJ.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.asj.or.jp/nenkai/archive/2024b/session-M.html">Astronomical Society of Japan Fall Annual Meeting</a>, 11–13 Sep. 2024, Kansai University, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://www.asj.or.jp/nenkai/archive/2024b/session-M.html">日本天文学会秋季年会</a>, 11–13 Sep. 2024, 関西大学.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and Extreme-ultraviolet Brightening"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://solar.physics.montana.edu/h17_i14_s3/">Hinode-17 IRIS-15 SPHERE-3 Meeting</a>, 23–27 Jul. 2024, Montana University, USA.
-            </div>
+            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and EUV Brightening" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://solar.physics.montana.edu/h17_i14_s3/">Hinode-17 IRIS-15 SPHERE-3 Meeting</a>, 23–27 Jul. 2024, Montana University, USA.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"The role of swirls in solar coronal heating"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="http://kyoryu.scphys.kyoto-u.ac.jp/rims24/">RIMS Symposium "Non-equilibrium Turbulence"</a>, 22–24 Jul. 2024, Kyoto University, Japan.
-            </div>
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="http://kyoryu.scphys.kyoto-u.ac.jp/rims24/">RIMS Symposium "Non-equilibrium Turbulence"</a>, 22–24 Jul. 2024, 京都大学.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Self-consistent simulation of an entire coronal loop spanning from the convection zone to the corona"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.asj.or.jp/nenkai/archive/2024a/session-M.html">Astronomical Society of Japan Spring Annual Meeting</a>, 11–15 Mar. 2024, University of Tokyo, Japan.
-            </div>
+            <div class="talk-title">"Self-consistent simulation of an entire coronal loop" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://www.asj.or.jp/nenkai/archive/2024a/session-M.html">日本天文学会春季年会</a>, 11–15 Mar. 2024, 東京大学.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and Extreme-ultraviolet Brightening"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">Solar-C SWG meeting, 5–6 Mar. 2024, Nagoya University, Japan.</div>
+            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and EUV Brightening" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">Solar-C SWG meeting, 5–6 Mar. 2024, 名古屋大学.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and Extreme-ultraviolet Brightening"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2023_program.pdf">Japan Solar Physics Community Symposium</a>, 20–22 Feb. 2024, NAOJ, Japan.
-            </div>
+            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and EUV Brightening" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2023_program.pdf">太陽研究者連絡会シンポジウム</a>, 20–22 Feb. 2024, NAOJ.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and Extreme-ultraviolet Brightening"
-              <span class="talk-badge badge-invited">invited</span>
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">Chromospheric Magnetic Field Workshop, 14–16 Feb. 2024, NAOJ, Japan.</div>
+            <div class="talk-title">"Cospatial Incidence of Chromospheric Swirls and EUV Brightening" <span class="tbadge tb-invited">invited</span><span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">Chromospheric Magnetic Field Workshop, 14–16 Feb. 2024, NAOJ.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Efficient energy transfer into the solar corona by magnetic tornadoes"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.cfca.nao.ac.jp/content/2023%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0-cfca-%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">CfCA Users Meeting</a>, 29–30 Jan. 2024, NAOJ, Japan.
-            </div>
+            <div class="talk-title">"Efficient energy transfer into the solar corona by magnetic tornadoes" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://www.cfca.nao.ac.jp/content/2023%E4%BB%A4%E5%92%8C5%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0-cfca-%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">CfCA Users Meeting</a>, 29–30 Jan. 2024, NAOJ.</div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="split-col-header">セミナー</div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-invited">invited</span></div>
+            <div class="talk-meta">セミナー, Jul. 2024, 名古屋大学.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"The role of swirls in solar coronal heating" <span class="tbadge tb-invited">invited</span></div>
+            <div class="talk-meta">Tsukuba Space Forum, Apr. 2024, 筑波大学.</div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 2023 -->
-    <div class="news-section" style="margin-top:10px;">
-      <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
-        <div class="year-toggle-left">
-          <span class="year-num">2023</span>
-          <span class="year-count">2 件</span>
+  <!-- ═══════ 2023 ═══════
+       学会: oral×5, poster×3
+       セミナー: invited×3
+       招待計: 3 -->
+  <div class="year-block">
+    <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="year-toggle-left">
+        <span class="year-num">2023</span>
+        <div class="year-meta">
+          <span class="year-count">学会 8件 · セミナー 3件</span>
+          <span class="year-invited-badge">招待 3件</span>
         </div>
-        <span class="year-arrow">▼</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-inner">
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner-split">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
           <div class="talk-item">
-            <div class="talk-title">"Can the Solar P-modes Contribute to the High-frequency Transverse Oscillations of Spicules?"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://www.asj.or.jp/nenkai/archive/2023a/">Astronomical Society of Japan Spring Annual Meeting</a>, 13–15 Mar. 2023, Tokyo, Japan.
-            </div>
+            <div class="talk-title">"Magnetic Tornado in the Solar Corona: from Chromospheric Observations to Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">Hinode-16 / IRIS-13 Meeting, Sep. 2023, 新潟.</div>
           </div>
           <div class="talk-item">
-            <div class="talk-title">"Magnetic Tornado Induced by the Merger of Coronal Loop Footpoints: an Efficient Energy Channel into the Solar Corona"
-              <span class="talk-badge badge-oral">oral</span>
-            </div>
-            <div class="talk-meta">
-              <a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2023_program.pdf">Japan Solar Physics Community Symposium</a>, 20–22 Feb. 2023, Nagoya, Japan.
-            </div>
+            <div class="talk-title">"Magnetic Tornado Properties: A Substantial Contribution to the Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">日本天文学会秋季年会, Sep. 2023, 名古屋.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado in Solar Corona" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">WISA (Waves and Instabilities in the Solar Atmosphere), Jun. 2023, Newcastle, UK.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Can the Solar P-modes Contribute to the High-frequency Transverse Oscillations of Spicules?" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://www.asj.or.jp/nenkai/archive/2023a/">日本天文学会春季年会</a>, Mar. 2023, 東京大学.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Induced by the Merger of Coronal Loop Footpoints" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta"><a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2023_program.pdf">太陽研究者連絡会シンポジウム</a>, Feb. 2023, 名古屋.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">Rironkon Symposium "High Redshift as the Frontier", Dec. 2023, 青森.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado in the Solar Corona" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">AGU Fall Meeting, Dec. 2023, San Francisco, USA.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado in Solar Corona" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">地球惑星科学連合大会 (JpGU), May 2023, 千葉.</div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="split-col-header">セミナー</div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties in Solar Coronal Heating" <span class="tbadge tb-invited">invited</span></div>
+            <div class="talk-meta">地球惑星科学専攻セミナー, Oct. 2023, 東京大学.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado in the Solar Corona" <span class="tbadge tb-invited">invited</span></div>
+            <div class="talk-meta">Mullard Space Science Laboratory seminar, UCL (online), Aug. 2023.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado in the Solar Corona" <span class="tbadge tb-invited">invited</span></div>
+            <div class="talk-meta">Plasma Dynamics Group seminar, Sheffield University (online), May 2023.</div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
+  <!-- ═══════ 2022 ═══════
+       学会: oral×5, poster×1 — 招待なし -->
+  <div class="year-block">
+    <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="year-toggle-left">
+        <span class="year-num">2022</span>
+        <div class="year-meta">
+          <span class="year-count">学会 6件</span>
+        </div>
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner-split single">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties: Substantial Contribution to Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">日本天文学会秋季年会, Sep. 2022, 新潟.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties: Substantial Contribution to Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">日本流体力学会年会 (JSFM), Sep. 2022, 京都.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties: Substantial Contribution to Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">SOLAR MHD Conference, Aug. 2022, Eastbourne, UK (hybrid).</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties: Substantial Contribution to Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">地球惑星科学連合大会 (JpGU), May 2022, 千葉 (hybrid).</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties: Substantial Contribution to Solar Coronal Heating" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">太陽研究者連絡会シンポジウム, Feb. 2022, Online.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Tornado Properties" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">IAUGA (IAU General Assembly), Aug. 2022, Busan, ROK (hybrid).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 2021 ═══════
+       学会: oral×3 — 招待なし -->
+  <div class="year-block">
+    <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="year-toggle-left">
+        <span class="year-num">2021</span>
+        <div class="year-meta">
+          <span class="year-count">学会 3件</span>
+        </div>
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner-split single">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Reconnection in a Sheared Magnetic Flux Tube: Slippage Versus Tearing" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">AGU Fall Meeting, Dec. 2021, New Orleans, USA (hybrid).</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Reconnection in a Sheared Magnetic Flux Tube" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">地球惑星科学連合大会 (JpGU), May 2021, Online.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Reconnection in a Sheared Magnetic Flux Tube" <span class="tbadge tb-oral">oral</span></div>
+            <div class="talk-meta">日本天文学会春季年会, Mar. 2021, Online.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 2020 ═══════
+       学会: poster×2 — 招待なし -->
+  <div class="year-block">
+    <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+      <div class="year-toggle-left">
+        <span class="year-num">2020</span>
+        <div class="year-meta">
+          <span class="year-count">学会 2件</span>
+        </div>
+      </div>
+      <span class="year-arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-inner-split single">
+        <div class="split-col">
+          <div class="split-col-header">学会発表</div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Reconnection in a Sheared Flux Tube" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">AGU Fall Meeting, Dec. 2020, Online.</div>
+          </div>
+          <div class="talk-item">
+            <div class="talk-title">"Magnetic Reconnection in a Sheared Flux Tube" <span class="tbadge tb-poster">poster</span></div>
+            <div class="talk-meta">太陽研究者連絡会シンポジウム, Dec. 2020, Online.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <script>
