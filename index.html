@@ -1,172 +1,262 @@
 <!DOCTYPE html>
 <html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>国吉 秀鷹 — 太陽・恒星物理学</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <head>
-        <meta charset="utf-8">
-        <title> 国吉　秀鷹のホームページ </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/sidebar.css">
-        <link rel="stylesheet" href="css/top.css">
-    </head>
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <span class="en">Hidetaka Kuniyoshi</span>
+    <span class="ja">国吉 秀鷹</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="./index_english.html"><span class="icon">🌐</span>English</a></li>
+      <div class="sidebar-divider"></div>
+      <li class="active"><a href="./index.html"><span class="icon">◈</span>トップ</a></li>
+      <li><a href="./paper.html"><span class="icon">◈</span>論文</a></li>
+      <li><a href="./conference.html"><span class="icon">◈</span>講演</a></li>
+      <li><a href="./cv.html"><span class="icon">◈</span>経歴</a></li>
+      <div class="sidebar-divider"></div>
+      <li><a href="https://note.com/dapper_ivy8055"><span class="icon">✍</span>英国滞在日記</a></li>
+    </ul>
+  </nav>
+  <div class="sidebar-footer">Solar &amp; Stellar Physics</div>
+</aside>
 
-    <body>
-        <!-- サイドバー -->
-        <div class="sidebar">
-            <ul>
-                <li class="sideLink sideLinkEnglish">
-                    <a href="./index_english.html">
-                        ENGLISH
-                    </a>
-                </li>
-                <li class="sideLink sideLinkTop">
-                    <a href="./index.html">
-                        トップ
-                    </a>
-                </li>
-                <li class="sideLink sideLinkPaper">
-                    <a href="./paper.html">
-                        論文
-                    </a>
-                </li>
-                <li class="sideLink sideLinkConference">
-                    <a href="./conference.html">
-                        講演
-                    </a>
-                </li>
-                <li class="sideLink sideLinkCV">
-                    <a href="./cv.html">
-                        経歴
-                    </a>
-                </li>
-                <li class="sideLink sideLinkBlog">
-                    <a href="https://note.com/dapper_ivy8055">
-                        英国滞在日記
-                    </a>
-                </li>
-            </ul>
+<main class="main">
+
+  <header class="page-header">
+    <div class="page-header-en">Homepage</div>
+    <h1>国吉 秀鷹</h1>
+    <div class="subtitle">太陽・恒星物理学 / Solar &amp; Stellar Physics</div>
+  </header>
+
+  <!-- Profile -->
+  <section style="margin-bottom: 52px;">
+    <div class="section-label">Profile</div>
+    <div class="section-title">プロフィール</div>
+    <div class="profile-card">
+      <img class="profile-img" src="./src/top2.jpg" alt="国吉 秀鷹" />
+      <div>
+        <div class="profile-name">国吉 秀鷹</div>
+        <div class="profile-name-sub">くによし ひでたか</div>
+        <table class="profile-table">
+          <tr>
+            <th>出身</th>
+            <td>沖縄県那覇市首里（城西小学校 → 昭和薬科大学附属中学・高校）</td>
+          </tr>
+          <tr>
+            <th>所属</th>
+            <td>英国ノーサンブリア大学・<a href="https://www.northumbria.ac.uk/about-us/academic-departments/mathematics-physics-and-electrical-engineering/research/solar-and-space-physics/">太陽宇宙空間物理グループ</a>（海外学振）</td>
+          </tr>
+          <tr>
+            <th>専門</th>
+            <td>天文学・宇宙物理学（特に太陽・恒星物理学）</td>
+          </tr>
+          <tr>
+            <th>連絡先</th>
+            <td>kuniyoshi.hidetaka.astro_(at)_gmail.com</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section>
+    <div class="section-label">News &amp; Activities</div>
+    <div class="section-title">最新情報</div>
+
+    <!-- 2026 -->
+    <div class="news-section">
+      <button class="year-toggle open" onclick="toggle(this)" aria-expanded="true">
+        <div class="year-toggle-left">
+          <span class="year-num">2026</span>
+          <span class="year-count">5 件</span>
         </div>
-        <div class="mainColumn">
-            <div class="mainColumnTop">
-                <h1>
-                    国吉　秀鷹のホームページ
-                </h1>
-                <div class="topBody">
-                    <!-- 左エリア -->
-                    <div class="topBodyCenter">
-                        <img class="topProfileImg" src="./src/top2.jpg" width="246" height="329" />
-                        <div class="topProfileItem">
-                            <div>
-                                国吉　秀鷹（くによし　ひでたか）
-                            </div>
-                            <div>
-                                出身：沖縄県那覇市首里（城西小学校 &rarr; 昭和薬科大学附属中学・高校）
-                            </div>
-                            <div>
-                                所属：英国ノーサンブリア大学・<a href="https://www.northumbria.ac.uk/about-us/academic-departments/mathematics-physics-and-electrical-engineering/research/solar-and-space-physics/">太陽宇宙空間物理グループ</a>（海外学振）
-                            </div>
-                            <div>
-                                専門：天文学・宇宙物理学（特に太陽・恒星物理学）
-                            </div>
-                            <div>
-                                連絡先：<a>kuniyoshi.hidetaka.astro_(at)_gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="topInfoHeader">
-                            &#x2605;&#x2605;&#x2605;　最新情報　&#x2605;&#x2605;&#x2605;
-                        </div>
-                        <div class="topInfoItem">
-                            2026年03月09日　<a href="https://uksolphys.org/138-how-do-swirls-heat-the-solar-corona/">UK Solar Physics Science Nugget</a>に寄稿しました。
-                        </div>
-                        <div class="topInfoItem">
-                            2026年03月05日　<a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0564/">京大生存圏研究所・電波科学計算機実験（KDK）シンポジウム</a>（オンライン）で口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2026年02月10日-13日　<a href="https://www.prl.res.in/~uso50yr/uso50yr.shtml">International Conference of Exploring the Sun at High-Resolution: Present Perspectives & Future Horizons</a> (ウダイプル太陽天文台, インド)にて招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2026年01月23日　国立天文台 Center for Computational Astrophysics（CfCA）<a href="https://www.cfca.nao.ac.jp/newsletter/2025%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0cfca%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E3%81%94%E6%A1%88%E5%86%85">ユーザーズミーティング</a>にて口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2026年01月07日　沖縄科学技術大学院大学（OIST）・<a href="https://www.oist.jp/ja/research/research-units/stec">太陽地球環境-気候ユニット（宮原ユニット）</a>にてセミナー講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年12月26日　京都大学・<a href="https://www2.kusastro.kyoto-u.ac.jp/ja/danwakai2025">宇宙物理学教室談話会</a>でセミナー講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年12月17日-19日　<a href="https://sites.google.com/view/rironkon2025/">理論懇シンポジウム</a>（筑波大学）で口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年12月16日　東京大学地球惑星科学専攻・<a href="https://www-space.eps.s.u-tokyo.ac.jp/~imada/lab/">今田研究室</a>にてセミナー講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年10月09日　<a href="https://sites.google.com/sheffield.ac.uk/pdg/seminars-and-conferences/pdg-seminars/2025?authuser=0">シェフィールド大学・Plasma Dynamics Group (PDG)セミナー</a>（オンライン）にて招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年09月23日-26日　<a href="https://indico.ict.inaf.it/event/3090/">Waves and Instabilities in the Solar Atmosphere</a>国際会議（INAF, イタリア）にて口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年09月10日　主著論文がAstrophysical Journal Lettersから出版されました <a href="https://iopscience.iop.org/article/10.3847/2041-8213/adfc61">論文にアクセス</a>
-                        </div>
-                        <div class="topInfoItem">
-                            2025年08月12日　主著論文がAstrophysical Journal Lettersにアクセプトされました <a href="https://arxiv.org/abs/2508.14459">arXiv</a>
-                        </div>
-                        <div class="topInfoItem">
-                            2025年07月21日-25日　<a href="https://astronomiaoan.github.io/iaus400/program.html">International Astronomical Union Symposium 400</a> (EAFIT大学, コロンビア)にてポスター発表を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年07月07日-11日　<a href="https://conference.astro.dur.ac.uk/event/7/">National Astronomical Meeting</a> (ダラム大学, 英国)にてポスター発表を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年07月02日　<a href="https://www.northumbria.ac.uk/about-us/academic-departments/mathematics-physics-and-electrical-engineering/research/solar-and-space-physics/">Solar and Space Physics Group Seminar</a> (ノーサンブリア大学, 英国)にて口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年06月25日　<a href="https://sites.google.com/view/hinode-18-iris-16-meeting/science-programme?authuser=0">Hinode18-IRIS16国際会議</a>（University College London, 英国）にて招待講演を行いました
-                        </div>
-                         <div class="topInfoItem">
-                            2025年06月03日　<a href="https://sites.google.com/sheffield.ac.uk/pdg/research/vortex-community/spins-meeting/photos-spins?authuser=0">SPINS (Solar Physics International Network for Swirls) 会議</a>（シェフィールド大学, 英国）にて招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年05月09日　<a href="https://www.heap.phys.waseda.ac.jp/index.php">早稲田大学高エネルギー天体物理学研究室・山田研究室セミナー</a>（オンライン）にて招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年05月05日　<a href="https://sites.google.com/view/solo-wg/working-groups/atmospheric-heating-rs?authuser=0">Solar Orbiter Atmospheric Heating Working Group meeting</a>（オンライン）にて招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年04月14日-16日　<a href="https://uksolphys.org/3-day-uk-solar-stand-alone-meeting/">3-Day UK Solar Community Meeting</a> (シェフィールド大学, 英国)に参加しました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年04月01日　ノーサンブリア大学でのポスドク生活を始めました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年03月26日　地元の新聞<a href="https://www.okinawatimes.co.jp/articles/-/1551395">沖縄タイムス</a>に私の研究に関する記事が掲載されました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年03月24日　東京大学を卒業して博士号を取得しました（<a href="./src/graduation.jpg">記念写真</a>）
-                        </div>
-                        <div class="topInfoItem">
-                            2025年03月18日　<a href="https://www.asj.or.jp/nenkai/archive/2025a/session-M.html">日本天文学会春季年会</a>（茨城大学）で指導教員の横山央明先生が私の研究に関する口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年03月14日　<a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0543/">京大生存圏研究所・電波科学計算機実験（KDK）シンポジウム</a>（オンライン）で口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年03月10日　<a href="https://www.s.u-tokyo.ac.jp/ja/info/10714/">東京大学大学院理学系研究科研究奨励賞</a>を受賞しました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年02月17日　<a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2024_program.pdf">太陽研究者連絡会シンポジウム</a>（ISAS）で招待講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年02月14日　<a href="https://sites.google.com/view/cswsj">Cool Stars Workshop in Japan</a>（東京大学駒場）で口頭講演を行いました
-                        </div>
-                        <div class="topInfoItem">
-                            2025年01月28日　ホームページを開設しました
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <span class="year-arrow">▼</span>
+      </button>
+      <div class="acc-body open">
+        <div class="acc-inner">
+          <div class="news-item">
+            <span class="news-date">Mar. 09</span>
+            <span class="ntag ntag-other">寄稿</span>
+            <div class="news-text"><a href="https://uksolphys.org/138-how-do-swirls-heat-the-solar-corona/">UK Solar Physics Science Nugget</a> に寄稿しました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 05</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0564/">京大生存圏研究所・電波科学計算機実験（KDK）シンポジウム</a>（オンライン）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Feb. 10–13</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://www.prl.res.in/~uso50yr/uso50yr.shtml">International Conference of Exploring the Sun at High-Resolution: Present Perspectives &amp; Future Horizons</a>（ウダイプル太陽天文台、インド）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jan. 23</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text">国立天文台 Center for Computational Astrophysics（CfCA）<a href="https://www.cfca.nao.ac.jp/newsletter/2025%E4%BB%A4%E5%92%8C7%E5%B9%B4%E5%BA%A6-%E5%9B%BD%E7%AB%8B%E5%A4%A9%E6%96%87%E5%8F%B0cfca%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%BA%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E3%81%94%E6%A1%88%E5%86%85">ユーザーズミーティング</a>にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jan. 07</span>
+            <span class="ntag ntag-seminar">セミナー</span>
+            <div class="news-text">沖縄科学技術大学院大学（OIST）・<a href="https://www.oist.jp/ja/research/research-units/stec">太陽地球環境-気候ユニット（宮原ユニット）</a>にてセミナー講演を行いました。</div>
+          </div>
         </div>
-    </body>
-    
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="news-section" style="margin-top:10px;">
+      <button class="year-toggle" onclick="toggle(this)" aria-expanded="false">
+        <div class="year-toggle-left">
+          <span class="year-num">2025</span>
+          <span class="year-count">20 件</span>
+        </div>
+        <span class="year-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <div class="news-item">
+            <span class="news-date">Dec. 26</span>
+            <span class="ntag ntag-seminar">セミナー</span>
+            <div class="news-text">京都大学・<a href="https://www2.kusastro.kyoto-u.ac.jp/ja/danwakai2025">宇宙物理学教室談話会</a>にてセミナー講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Dec. 17–19</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://sites.google.com/view/rironkon2025/">理論懇シンポジウム</a>（筑波大学）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Dec. 16</span>
+            <span class="ntag ntag-seminar">セミナー</span>
+            <div class="news-text">東京大学地球惑星科学専攻・<a href="https://www-space.eps.s.u-tokyo.ac.jp/~imada/lab/">今田研究室</a>にてセミナー講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Oct. 09</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://sites.google.com/sheffield.ac.uk/pdg/seminars-and-conferences/pdg-seminars/2025?authuser=0">シェフィールド大学・Plasma Dynamics Group (PDG) セミナー</a>（オンライン）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Sep. 23–26</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://indico.ict.inaf.it/event/3090/">Waves and Instabilities in the Solar Atmosphere</a> 国際会議（INAF、イタリア）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Sep. 10</span>
+            <span class="ntag ntag-paper">論文</span>
+            <div class="news-text">主著論文が <em>Astrophysical Journal Letters</em> から出版されました。<a href="https://iopscience.iop.org/article/10.3847/2041-8213/adfc61">論文にアクセス</a></div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Aug. 12</span>
+            <span class="ntag ntag-paper">論文</span>
+            <div class="news-text">主著論文が <em>Astrophysical Journal Letters</em> にアクセプトされました。<a href="https://arxiv.org/abs/2508.14459">arXiv</a></div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jul. 21–25</span>
+            <span class="ntag ntag-talk">ポスター</span>
+            <div class="news-text"><a href="https://astronomiaoan.github.io/iaus400/program.html">International Astronomical Union Symposium 400</a>（EAFIT 大学、コロンビア）にてポスター発表を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jul. 07–11</span>
+            <span class="ntag ntag-talk">ポスター</span>
+            <div class="news-text"><a href="https://conference.astro.dur.ac.uk/event/7/">National Astronomical Meeting</a>（ダラム大学、英国）にてポスター発表を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jul. 02</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://www.northumbria.ac.uk/about-us/academic-departments/mathematics-physics-and-electrical-engineering/research/solar-and-space-physics/">Solar and Space Physics Group Seminar</a>（ノーサンブリア大学、英国）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jun. 25</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://sites.google.com/view/hinode-18-iris-16-meeting/science-programme?authuser=0">Hinode18-IRIS16 国際会議</a>（University College London、英国）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jun. 03</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://sites.google.com/sheffield.ac.uk/pdg/research/vortex-community/spins-meeting/photos-spins?authuser=0">SPINS (Solar Physics International Network for Swirls) 会議</a>（シェフィールド大学、英国）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">May. 09</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://www.heap.phys.waseda.ac.jp/index.php">早稲田大学高エネルギー天体物理学研究室・山田研究室セミナー</a>（オンライン）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">May. 05</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://sites.google.com/view/solo-wg/working-groups/atmospheric-heating-rs?authuser=0">Solar Orbiter Atmospheric Heating Working Group meeting</a>（オンライン）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Apr. 14–16</span>
+            <span class="ntag ntag-other">参加</span>
+            <div class="news-text"><a href="https://uksolphys.org/3-day-uk-solar-stand-alone-meeting/">3-Day UK Solar Community Meeting</a>（シェフィールド大学、英国）に参加しました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Apr. 01</span>
+            <span class="ntag ntag-other">着任</span>
+            <div class="news-text">ノーサンブリア大学にてポスドク研究員として着任しました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 26</span>
+            <span class="ntag ntag-other">メディア</span>
+            <div class="news-text">地元紙・<a href="https://www.okinawatimes.co.jp/articles/-/1551395">沖縄タイムス</a>に研究に関する記事が掲載されました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 24</span>
+            <span class="ntag ntag-award">学位</span>
+            <div class="news-text">東京大学にて博士号を取得しました。（<a href="./src/graduation.jpg">記念写真</a>）</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 18</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://www.asj.or.jp/nenkai/archive/2025a/session-M.html">日本天文学会春季年会</a>（茨城大学）にて、指導教員の横山央明先生が私の研究について口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 14</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://www.rish.kyoto-u.ac.jp/events/symposium-0543/">京大生存圏研究所・電波科学計算機実験（KDK）シンポジウム</a>（オンライン）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Mar. 10</span>
+            <span class="ntag ntag-award">受賞</span>
+            <div class="news-text"><a href="https://www.s.u-tokyo.ac.jp/ja/info/10714/">東京大学大学院理学系研究科研究奨励賞</a>を受賞しました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Feb. 17</span>
+            <span class="ntag ntag-invited">招待</span>
+            <div class="news-text"><a href="https://jspc.sakura.ne.jp/symp_program/JSPCsymp_2024_program.pdf">太陽研究者連絡会シンポジウム</a>（ISAS）にて招待講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Feb. 14</span>
+            <span class="ntag ntag-talk">口頭</span>
+            <div class="news-text"><a href="https://sites.google.com/view/cswsj">Cool Stars Workshop in Japan</a>（東京大学駒場）にて口頭講演を行いました。</div>
+          </div>
+          <div class="news-item">
+            <span class="news-date">Jan. 28</span>
+            <span class="ntag ntag-other">その他</span>
+            <div class="news-text">ホームページを開設しました。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function toggle(btn) {
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open);
+}
+</script>
+</body>
 </html>
