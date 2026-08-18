@@ -451,6 +451,20 @@ body {
   vertical-align: middle;
 }
 
+.paper-badge-noreview {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--cream);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 /* ═══════════════════════════════
    CONFERENCE / TALKS PAGE
 ═══════════════════════════════ */
